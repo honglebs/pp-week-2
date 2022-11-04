@@ -9,7 +9,7 @@ public class Employee {
     private double salary;
     private Department department;
     private String hireDate;
-    private static final double STARTING_SALARY = 60000;
+
 
 
     public Employee(long employeeId, String firstName, String lastName, String email, Department department, String hireDate) {
@@ -19,6 +19,7 @@ public class Employee {
         this.email = email;
         this.department = department;
         this.hireDate = hireDate;
+        this.salary = STARTING_SALARY;
     }
 
     public Employee() {
