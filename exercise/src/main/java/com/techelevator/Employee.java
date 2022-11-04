@@ -19,9 +19,11 @@ public class Employee {
         this.email = email;
         this.department = department;
         this.hireDate = hireDate;
+        this.salary = STARTING_SALARY;
     }
 
     public Employee() {
+        this.salary = STARTING_SALARY;
     }
 
     public long getEmployeeId() {
