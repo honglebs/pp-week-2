@@ -1,8 +1,10 @@
 package com.techelevator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Project {
+
     private String name;
     private String description;
     private String startDate;
@@ -14,6 +16,7 @@ public class Project {
         this.description = description;
         this.startDate = startDate;
         this.dueDate = dueDate;
+        teamMembers = new ArrayList<>();
     }
 
     public String getName() {

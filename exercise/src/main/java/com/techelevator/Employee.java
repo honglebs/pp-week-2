@@ -9,6 +9,8 @@ public class Employee {
     private double salary;
     private Department department;
     private String hireDate;
+    private static final double STARTING_SALARY = 60000;
+
 
 
 
@@ -87,8 +89,9 @@ public class Employee {
         return lastName + ", " + firstName;
     }
 
-    public double raiseSalary(double percent){
-        return STARTING_SALARY * percent/100;
+    public void raiseSalary(double percent){
+
+         this.salary = STARTING_SALARY + STARTING_SALARY * percent / 100;
     }
 
 

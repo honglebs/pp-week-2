@@ -1,7 +1,9 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Application {
 
@@ -12,6 +14,7 @@ public class Application {
 
     List<Department> departments = new ArrayList<>();
     List<Employee> employees = new ArrayList<>();
+    Map<String, Project> projects = new HashMap<>();
 
     Department department1 = new Department(1,"Marketing");
     Department department2 = new Department(2,"Sales");
@@ -114,6 +117,18 @@ public class Application {
      */
     private void createTeamsProject() {
 
+        Project engineerTeam = new Project("TEams", "Project Management Software", "startDate: 10/10/2020", "11/10/2020");
+
+        for (Employee employee : employees) {
+            if(employee.getDepartment().getName().equals("Engineering")){
+                engineerTeam.getTeamMembers().add(employee);
+            }
+        }
+        //System.out.println(teams.getTeamMembers());
+
+       projects.put(engineerTeam.getName(), engineerTeam);
+
+
     }
 
     /**
@@ -121,6 +136,15 @@ public class Application {
      */
     private void createLandingPageProject() {
 
+        Project marketTeam = new Project(" Marketing Landing Page", " Lead Capture Landing Page for Marketing", "startDate: 10/10/2020", "10/17/2020");
+
+        for (Employee employee : employees) {
+            if(employee.getDepartment().getName().equals("Marketing")){
+                marketTeam.getTeamMembers().add(employee);
+            }
+        }
+
+        projects.put(marketTeam.getName(), marketTeam);
     }
 
     /**
@@ -128,6 +152,11 @@ public class Application {
      */
     private void printProjectsReport() {
         System.out.println("\n------------- PROJECTS ------------------------------");
+        for(Map.Entry<String, Project> teamPair : projects.entrySet()){
+            String key = teamPair.getKey();
+            Project value = teamPair.getValue();
+            System.out.println(key + ": " + value.getTeamMembers().size());
+        }
 
     }
 
