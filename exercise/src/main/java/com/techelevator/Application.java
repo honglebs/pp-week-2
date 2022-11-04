@@ -11,6 +11,12 @@ public class Application {
      */
 
     List<Department> departments = new ArrayList<>();
+    List<Employee> employees = new ArrayList<>();
+
+    Department department1 = new Department(1,"Marketing");
+    Department department2 = new Department(2,"Sales");
+    Department department3 = new Department(1,"Engineering");
+
 
     public static void main(String[] args) {
         Application app = new Application();
@@ -45,9 +51,6 @@ public class Application {
      * Create departments and add them to the collection of departments
      */
     private void createDepartments() {
-        Department department1 = new Department(1,"Marketing");
-        Department department2 = new Department(2,"Sales");
-        Department department3 = new Department(1,"Engineering");
 
         departments.add(department1);
         departments.add(department2);
@@ -74,6 +77,23 @@ public class Application {
      * Create employees and add them to the collection of employees
      */
     private void createEmployees() {
+        Employee employee1 = new Employee();
+
+        employee1.setEmployeeId(1);
+        employee1.setFirstName("Dean");
+        employee1.setLastName("Johnson");
+        employee1.setEmail("djohnson@teams.com");
+        employee1.setDepartment(department3);
+        employee1.setHireDate("08/21/2020");
+
+        Employee employee2 = new Employee(2, "Angie", "Smith", "asmith@teams.com", department3, "08/21/2020");
+        Employee employee3 = new Employee(3, "Margaret", "Thompson", "mthompson@teams.com", department1, "08/21/2020");
+
+        employee2.raiseSalary(10);
+
+        employees.add(employee1);
+        employees.add(employee2);
+        employees.add(employee3);
 
     }
 
@@ -82,6 +102,10 @@ public class Application {
      */
     private void printEmployees() {
         System.out.println("\n------------- EMPLOYEES ------------------------------");
+        for (int i = 0; i < employees.size(); i++) {
+            System.out.println(employees.get(i).getFullName() + " (" + employees.get(i).getSalary() + ") " + employees.get(i).getDepartment().getName());
+
+        }
 
     }
 

@@ -23,6 +23,7 @@ public class Employee {
     }
 
     public Employee() {
+        this.salary = STARTING_SALARY;
     }
 
     public long getEmployeeId() {
